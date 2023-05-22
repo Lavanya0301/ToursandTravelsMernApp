@@ -1,5 +1,5 @@
 import express from 'express';
-import Razorpay from 'Razorpay';
+//import Razorpay from 'Razorpay';
 import crypto from 'crypto';
 
 const router = express.Router();
