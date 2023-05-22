@@ -1,5 +1,4 @@
 import CommonSection from "../shared/CommonSection";
-import ServiceCard from "../services/ServiceCard";
 import ServiceList from "../services/ServiceList";
 import { Container,Row,Col } from "reactstrap";
 import Subtitle from "../shared/Subtitle";

@@ -73,7 +73,7 @@ const Testimonials = () => {
                  <div className="d-flex align-items-center gap-4 mt-3">
                     <img src={ava03} className='w-25 h-25 rounded-2' alt="" />
                     <div>
-                        <h6 className="mb-0 mt-3"></h6>
+                        <h6 className="mb-0 mt-3">Lia Franklin</h6>
                         <p>Customer</p>
                     </div>
                  </div>

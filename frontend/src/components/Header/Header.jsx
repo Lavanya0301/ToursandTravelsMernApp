@@ -6,7 +6,7 @@ import logo from '../../assets/images/logo.png'
 import './Header.css';
 import { AuthContext } from './../../context/AuthContext';
 
-import Login from "../../pages/Login";
+
 
 const nav__links= [
     {
@@ -69,8 +69,8 @@ useEffect(()=>{
                         <u1 className="menu d-flex align-items-center gap-5">
                             {nav__links.map((item,index) => (
                                 <li className="nav__item" key={index}>
-                                    <NavLink to={item.path} className={navClass=> navClass.
-                                        isActive ? 'active__link': "" 
+                                    <NavLink to={item.path} className={navClass=> navClass
+                                    .isActive ? 'active__link': "" 
                                         }
                                         >
                                          {item.display}

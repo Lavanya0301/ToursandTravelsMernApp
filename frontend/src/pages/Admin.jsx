@@ -95,7 +95,7 @@ const setFileToBase = (file) =>{
     
     console.log(newTour);
 
-    fetch('http://localhost:4000/api/v1/tours', {
+    fetch(`${BASE_URL}/tours`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -223,7 +223,9 @@ function DeleteTourDetailsButton() {
     return <p>Loading...</p>;
   }
 
-  { error && <h4 className="text-center pt-5">{error}</h4> }
+  { 
+    error && <h4 className="text-center pt-5">{error}</h4> 
+  }
 
 
   return (

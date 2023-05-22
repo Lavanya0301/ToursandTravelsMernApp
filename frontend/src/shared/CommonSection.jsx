@@ -2,7 +2,7 @@
 import React from "react";
 import './common-section.css'
 
-import { Container, Row, Col, CardTitle } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 const CommonSection = ({title}) => {
     return (
