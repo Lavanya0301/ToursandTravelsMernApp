@@ -1,5 +1,5 @@
 import express from 'express';
-import Razorpay from '../node_modules/razorpay/dist/razorpay.t.ds';
+import Razorpay from '../node_modules/razorpay/dist/razorpay.js';
 import crypto from 'crypto';
 
 const router = express.Router();
