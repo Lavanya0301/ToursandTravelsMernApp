@@ -69,7 +69,7 @@ const Login = () => {
     useEffect(()=>{
         
         window.google.accounts.id.initialize({
-            client_id: "997467084892-on0pvo2dqp9ripnndfsb1mcs4qfb79os.apps.googleusercontent.com",
+            client_id: "997467084892-sr6ujvughjahcqsf5scokr72m3elnfn7.apps.googleusercontent.com",
             callback: handleCallbackResponse
         })  ;
 
