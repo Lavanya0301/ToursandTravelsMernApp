@@ -59,7 +59,7 @@ const Booking = ({ tour, avgRating }) => {
 
 	const initPayment = (data) => {
 		const options = {
-			key: "rzp_test_j7SnsuIWl1MV52",
+			key: "rzp_test_4QXj5Xr0s0NQse",
 			amount: data.amount,
 			currency: data.currency,
 			name: tour.title,
