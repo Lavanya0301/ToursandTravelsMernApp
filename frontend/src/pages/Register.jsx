@@ -12,6 +12,7 @@ import jwt_decode from "jwt-decode";
 
 
 const Register = () => {
+    window.scrollTo(0,0)
     const [credentials, setCredentials] = useState({
         userName:undefined,
         email:undefined,

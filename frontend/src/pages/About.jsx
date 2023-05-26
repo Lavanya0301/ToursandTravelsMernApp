@@ -4,6 +4,7 @@ import { Container,Row,Col } from "reactstrap";
 import Subtitle from "../shared/Subtitle";
 import experienceImg from "../assets/images/experience.png"
 const About =()=>{
+    window.scrollTo(0,0)
 return(
     <>
       <CommonSection title={"About Us"}/>

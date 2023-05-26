@@ -4,6 +4,7 @@ import Subtitle from '../shared/Subtitle';
 import MasonryImagesGallery from "../components/image-gallery/MasonryImagesGallery";
 
 const Gallery = ()=>{
+    window.scrollTo(0,0)
     return(
         <>
          <CommonSection title={"Gallery"}/>

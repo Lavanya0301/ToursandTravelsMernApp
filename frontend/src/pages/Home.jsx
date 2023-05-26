@@ -18,6 +18,7 @@ import Testimonials from "../components/Testimonials/Testimonials";
 import Newsletter from "../shared/Newsletter";
 
 const Home = () => {
+    window.scrollTo(0,0)
     return <>
 
     {/* ========= hero section start ========= */}

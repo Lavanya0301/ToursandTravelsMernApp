@@ -12,6 +12,7 @@ import { BASE_URL } from './../utils/config';
 import jwt_decode from "jwt-decode";
 
 const Login = () => {
+    window.scrollTo(0,0)
     const [credentials, setCredentials] = useState({
         email:undefined,
         password:undefined,
