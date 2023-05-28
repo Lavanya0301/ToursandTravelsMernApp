@@ -98,7 +98,7 @@ const Login = () => {
     useEffect(() => {
 
         window.google.accounts.id.initialize({
-            client_id: "997467084892-sr6ujvughjahcqsf5scokr72m3elnfn7.apps.googleusercontent.com",
+            client_id: "997467084892-90t5p891fpadl4l52fcvcrqd39pqcgl9.apps.googleusercontent.com",
             callback: handleCallbackResponse
         });
 
