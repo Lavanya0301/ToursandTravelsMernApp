@@ -46,22 +46,58 @@ const Register = () => {
         }
     };
     
-    function handleCallbackResponse(response){
-        console.log("Encoded JWT ID token:" + response.credential);
+    async function handleCallbackResponse(response) {
         var userObject = jwt_decode(response.credential);
-        console.log(userObject);
+
+        try {
+            const res = await fetch(`${BASE_URL}/auth/googleregister`, {
+                method: 'post', headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(userObject),
+            })
+            const result = await res.json()
+
+            if (!res.ok) {
+                alert(result.message)
+                return false;
+            } 
+
+            const res2 = await fetch(`${BASE_URL}/auth/login`,{
+                method:'post',headers:{'content-type':'application/json'
+                },
+                body: JSON.stringify(result.data),
+            });
+
+            if (!res2.ok) {
+                alert(result.message)
+                return false;
+            }
+
+            dispatch({type:'LOGIN_SUCCESS', payload:result.data})
+
+            if(res2.role === 'admin') {
+                navigate('/admin');
+            } else {
+                navigate('/')
+            }
+        } catch (err) {
+            alert(err.message);
+        }
+
+
     }
 
     useEffect(()=>{
         
         window.google.accounts.id.initialize({
-            client_id: "997467084892-on0pvo2dqp9ripnndfsb1mcs4qfb79os.apps.googleusercontent.com",
+            client_id: "997467084892-sr6ujvughjahcqsf5scokr72m3elnfn7.apps.googleusercontent.com",
             callback: handleCallbackResponse
         })  ;
 
         window.google.accounts.id.renderButton(
             document.getElementById("signInDiv"),
-            { theme: "outline", size: "large"}
+            { theme: "outline", size: "large", buttonText: "Sign up with Google" }
         );
     }, []);
     
@@ -111,6 +147,8 @@ const Register = () => {
                                 <Button className="btn secondary__btn auth__btn" 
                                 type="submit">Create Account</Button>
                             </Form>
+                            <p>or</p>
+                            <div id="signInDiv"></div>
                             <p>
                                Already have an account? <Link to='/login'>Login</Link>
                             </p>

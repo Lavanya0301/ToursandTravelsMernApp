@@ -24,6 +24,37 @@ export const register = async(req,res)=>{
     }
 };
 
+export const googleregister = async(req,res)=>{
+   
+    try {
+        
+        // hashing password
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(req.body.aud, salt)
+        const email = req.body.email;
+
+        const newUser = new User({
+            username: req.body.name,
+            email: email,
+            password: hash,
+            photo: req.body.picture
+        });
+        
+        const user = await User.findOne({email})
+
+        if(!user){
+            await newUser.save();
+        }
+
+        newUser.password = req.body.aud;
+        
+        res.status(200).json({success:true, message: 'Success',data:newUser})
+
+    } catch (err) {
+        res.status(500).json({success:false, message: 'Failed to create. Try again'})
+    }
+};
+
 // user login
 export const login = async(req,res)=>{
 
