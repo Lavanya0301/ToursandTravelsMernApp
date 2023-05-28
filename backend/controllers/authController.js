@@ -20,7 +20,7 @@ export const register = async(req,res)=>{
 
         res.status(200).json({success:true, message: 'Successfully created'})
     } catch (err) {
-        res.status(500).json({success:false, message: 'Failed to create. Try again'})
+        res.status(500).json({error:false, message: 'Failed to create. Try again'})
     }
 };
 
@@ -40,18 +40,24 @@ export const googleregister = async(req,res)=>{
             photo: req.body.picture
         });
         
-        const user = await User.findOne({email})
+        const user = await User.findOne({email});
 
         if(!user){
             await newUser.save();
-        }
+        } 
 
-        newUser.password = req.body.aud;
+        const newUser2 = new User({
+            username: req.body.name,
+            email: email,
+            password: req.body.aud,
+            photo: req.body.picture
+        });
 
-        res.status(200).json({success:true, message: 'Success',data:newUser})
+
+        res.status(200).json({success:true, message: 'Success',data:newUser2})
 
     } catch (err) {
-        res.status(500).json({success:false, message: 'Failed to create. Try again'})
+        res.status(500).json({error:false, message: 'Failed to create. Try again'})
     }
 };
 
@@ -74,7 +80,7 @@ export const login = async(req,res)=>{
 
         //if password is incorrect
         if(!checkCorectPassword){
-            return res.status(401).json({success:false, 
+            return res.status(401).json({error:false, 
             message:'Incorrect email or password'})
         }
 
