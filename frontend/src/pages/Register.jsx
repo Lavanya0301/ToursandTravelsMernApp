@@ -44,7 +44,7 @@ const Register = () => {
         } catch (err) {
             alert(err.message);
         }
-    };
+    }; 
     
     async function handleCallbackResponse(response) {
         var userObject = jwt_decode(response.credential);

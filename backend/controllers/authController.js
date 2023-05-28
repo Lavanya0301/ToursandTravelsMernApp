@@ -47,7 +47,7 @@ export const googleregister = async(req,res)=>{
         }
 
         newUser.password = req.body.aud;
-        
+
         res.status(200).json({success:true, message: 'Success',data:newUser})
 
     } catch (err) {
@@ -57,7 +57,7 @@ export const googleregister = async(req,res)=>{
 
 // user login
 export const login = async(req,res)=>{
-
+ 
     const email = req.body.email
 
     try {
